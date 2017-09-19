@@ -8,13 +8,11 @@
 ---
 
 ---
-Serverspecとは何？
+- Serverspecとは何？ |
 - Rspecでサーバのテストを行うためのツール |
-```Ruby
 - describe package('nginx') do
   it { should be_installed }
 end
-```
 ---
 
 ---
