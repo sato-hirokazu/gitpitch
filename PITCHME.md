@@ -1,45 +1,35 @@
 ### ApplyjapanのServerspec
 
 ---
-
-### 発生した問題
-- provisioningにないけど、installがされている・・。
-- supervisord、Redisって、使ってるんだっけ？
-- そもそも、どんな設定だったか知らない・・・。
-
-+++
-
+- 発生した問題 |
+- provisioningにないけど、installがされている・・。 |
+- supervisord、Redisって、使ってるんだっけ？ |
+- そもそも、どんな設定だったか知らない・・・。|
 ---
 
-### Serverspecとは何？
-- Rspecでサーバのテストを行うためのツール
-
-```
+---
+Serverspecとは何？
+- Rspecでサーバのテストを行うためのツール |
+```Ruby
 - describe package('nginx') do
   it { should be_installed }
 end
 ```
-
-+++
-
 ---
 
-### Applyjapanの構成
+---
+Applyjapanの構成
 - WEB3台・DB2台(master/slave)・batch1台
-
-+++
-
 ---
 
-### 悩み1
-- 複数のホストで、共通のテストを実行したい
-
-+++
-
+---
+悩み1
+- 複数のホストで、共通のテストを実行したい |
 ---
 
-### 解決策
-- 構成
+---
+解決策
+- 構成 |
 
 ```
 tree -L 1 spec/
@@ -52,22 +42,18 @@ spec/
 └── web
 
 ```
-
-+++
-
 ---
 
-
-### 悩み2
-- 全サーバの一覧ってどう管理する？(たぶん、devとかもいれたら、サーバ数30〜40くらいある気がする...)
-
-+++
-
+---
+悩み2
+- 全サーバの一覧ってどう管理する？(たぶん、devとかもいれたら、サーバ数30〜40くらいある気がする...) |
 ---
 
-### 解決策
-- ymlで管理するようにした
-- bundle exec rake serverspec -T
+---
+解決策
+- ymlで管理するようにした |
+- bundle exec rake serverspec -T |
+
 ```
 rake serverspec                         # Run serverspec to all hosts
 rake serverspec:aj-api-db01             # Run serverspec to aj-api-db01
@@ -81,9 +67,6 @@ rake serverspec:aj-shikoku-web08        # Run serverspec to aj-shikoku-web08
 ... (省略)
 
 ```
-
-+++
-
 ---
 
 ### おわり
