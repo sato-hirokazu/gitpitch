@@ -86,7 +86,7 @@ rake serverspec:aj-shikoku-web08        # Run serverspec to aj-shikoku-web08
 - 所感、体感 |
 - 人手による運用が入ってるので、過去の不安が凝縮されている(気がする) |
 - サービスが参照する設定ファイルの値はチェックできてないので、これは、やっていかないといけない...。 |
-- repository: github.com/hitomedia/aj-playbooks|
+- repository: https://github.com/hitomedia/aj-playbooks|
 
 ---
 
