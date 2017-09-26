@@ -10,13 +10,27 @@
 ---
 - Serverspecとは何？ |
 - Rspecでサーバのテストを行うためのツール |
-- describe package('nginx') do
-  it { should be_installed }
-end
 ---
 
 ---
-Applyjapanの構成
+```
+describe package('nginx') do
+  it { should be_installed }
+end
+
+describe package('php-fpm') do
+  it { should be_installed }
+end
+
+describe service('php-fpm') do
+  it { should be_enabled }
+  it { should be_running }
+end
+```
+---
+
+---
+ApplyjapanのServer構成
 - WEB3台・DB2台(master/slave)・batch1台
 ---
 
@@ -27,7 +41,7 @@ Applyjapanの構成
 
 ---
 解決策
-- 構成 |
+・ 構成
 
 ```
 tree -L 1 spec/
@@ -65,6 +79,15 @@ rake serverspec:aj-shikoku-web08        # Run serverspec to aj-shikoku-web08
 ... (省略)
 
 ```
+
+---
+
+---
+- 所感、体感 |
+- 人手による運用が入ってるので、過去の不安が凝縮されている(気がする) |
+- サービスが参照する設定ファイルの値はチェックできてないので、これは、やっていかないといけない...。 |
+- repository: github.com/hitomedia/aj-playbooks|
+
 ---
 
 ### おわり
