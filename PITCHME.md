@@ -58,13 +58,14 @@ spec/
 
 ---
 悩み2
-- 全サーバの一覧ってどう管理する？(たぶん、devとかもいれたら、サーバ数30〜40くらいある気がする...) |
+- 全サーバの一覧ってどう管理しようかな・・？ |
 ---
 
 ---
 解決策
 - ymlで管理するようにした |
 - bundle exec rake serverspec -T |
+- どのホストにどの役割に対するテストを実行するかを定義 |
 
 ```
 rake serverspec                         # Run serverspec to all hosts
@@ -86,7 +87,6 @@ rake serverspec:aj-shikoku-web08        # Run serverspec to aj-shikoku-web08
 - 所感、体感 |
 - 人手による運用が入ってるので、過去の不安が凝縮されている(気がする) |
 - サービスが参照する設定ファイルの値はチェックできてないので、これは、やっていかないといけない...。 |
-- repository: https://github.com/hitomedia/aj-playbooks|
 
 ---
 
